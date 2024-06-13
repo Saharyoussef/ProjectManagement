@@ -7,6 +7,7 @@ import Image from "next/image";
 import {Activity,Layout,Settings}from "lucide-react";
 import { useRouter,usePathname} from "next/navigation";
 import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export type Organization={
     id: string;
@@ -33,7 +34,7 @@ export const NavItem=({
     const pathname=usePathname()
     const routes=[
         {
-            label: "Boards",
+            label: "Projects",
             icon: <Layout className="h-4 w-4 mr-2"></Layout>,
             href: `/organization/${organization.id}`,
         },
@@ -102,3 +103,14 @@ export const NavItem=({
         </AccordionItem>
     );
 };
+
+NavItem.Skeleton= function SkeletonNavItem (){
+    return(
+        <div className="flex items-center gap-x-2"> 
+            <div className="w-10 h-10 relative shrink-0">
+                <Skeleton className="h-full w-full absolute"></Skeleton>
+            </div>
+                <Skeleton className="h-10 w-full"></Skeleton>
+        </div>
+    )
+}
