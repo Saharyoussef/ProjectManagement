@@ -37,6 +37,8 @@ const LandingPage=()=>{
             <div className={cn("text-sm md:text-xl text-neutral-400 mt-4 max-w-xs md:max-w-2xl text-center mx-auto",
                 textFont.className,
             )}>
+                {/*car on veut utiliser textFont donc on utilise cn */}
+                
                CollabPro is your go-to tool for managing tasks and projects effortlessly. With a focus on collaboration and productivity, CollabPro ensures that your team can achieve more, together.
             </div>
             <Button className="mt-6" size="lg" asChild>

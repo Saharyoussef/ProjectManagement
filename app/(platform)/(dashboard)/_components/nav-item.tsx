@@ -31,12 +31,16 @@ export const NavItem=({
 }:NavItemProps)=>{
 
     const router=useRouter()
+    //Utilise le hook useRouter de Next.js pour obtenir l'objet router, qui permet de gérer la navigation
     const pathname=usePathname()
+    //Utilise le hook usePathname de Next.js pour obtenir le chemin d'accès de l'URL actuelle.
     const routes=[
         {
             label: "Projects",
             icon: <Layout className="h-4 w-4 mr-2"></Layout>,
             href: `/organization/${organization.id}`,
+            //${organization.id} est une expression JavaScript insérée dans la chaîne. Elle est remplacée par la valeur de organization.id. 
+            //Par exemple, si organization.id vaut "123", l'URL finale sera "/organization/123"
         },
 
         {
@@ -55,6 +59,8 @@ export const NavItem=({
     const onClick=(href:string)=>{
         router.push(href);
     };
+    /*Définit une fonction onClick qui prend un argument href (l'URL de la section) 
+    et utilise router.push(href) pour naviguer vers cette URL lorsque le lien est cliqué. */
 
     return(
         <AccordionItem
@@ -73,7 +79,6 @@ export const NavItem=({
                                 src={organization.imageUrl}
                                 alt="Organization"
                                 className="rounded-sm object-cover">
-
                             </Image>
                         </div>
                         <span className="font-medium text-sm">
