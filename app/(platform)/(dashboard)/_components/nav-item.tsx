@@ -4,7 +4,7 @@ import { AccordionItem, AccordionTrigger,AccordionContent } from "@/components/u
 import { cn } from "@/lib/utils";
 
 import Image from "next/image";
-import {Activity,Layout,Settings}from "lucide-react";
+import {Activity,Layout,Settings,MessageCircle}from "lucide-react";
 import { useRouter,usePathname} from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -53,7 +53,14 @@ export const NavItem=({
             label: "Settings",
             icon: <Settings className="h-4 w-4 mr-2"></Settings>,
             href: `/organization/${organization.id}/settings`,
-        }
+        },
+
+        {
+            label: "Chat",
+            icon: <MessageCircle className="h-4 w-4 mr-2"></MessageCircle>,
+            href: `/organization/${organization.id}/chat`,
+        },
+        //si on veut ajouter une page mais rien ne s'affiche juste
     ];
 
     const onClick=(href:string)=>{
