@@ -126,8 +126,8 @@ export const Sidebar =({
     return ( ... ) : Si les données ne sont pas encore chargées, affiche un effet de chargement (squelette) à la place du contenu réel. */
 
     return(
-        <>
-            <div className="font-medium text-xs flex items-center mb-1">
+        <div className="ml-0 pl-0">
+            <div className="font-medium text-lg flex items-center justify-center mb-4 pl-0 ml-0">
                 <span className="pl-4">
                     Pole
                 </span>
@@ -139,14 +139,14 @@ export const Sidebar =({
                     className="ml-auto"
                  >
                     <Link href="/select-org">
-                        <Plus className="h-4 w-4"></Plus>
+                        <Plus className="h-6 w-6"></Plus>
                     </Link>
                 </Button>
             </div>
             <Accordion
             type="multiple"
             defaultValue={defaultAccordionValue}
-            className="space-y-2">
+            className="space-y-2 pl-0 ml-0">
                 {userMemberships.data.map(({organization})=>(
                     /*C'est une boucle qui parcourt chaque élément organization dans userMemberships.data 
                     (la liste des organisations de l'utilisateur) 
@@ -163,6 +163,6 @@ export const Sidebar =({
                     </NavItem>
                 ))}
             </Accordion>
-        </>      
+        </div>      
     )
 }

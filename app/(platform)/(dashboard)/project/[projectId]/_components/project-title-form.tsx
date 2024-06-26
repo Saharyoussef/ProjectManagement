@@ -68,7 +68,7 @@ export const ProjectTitleForm=({
                         id="title"
                         onBlur={()=>{}}
                         defaultValue={title}
-                        className="text-lg font-bold px-[7px] py-1 h-7 bg-transparent focus-visible:outline-none focus-visible:ring-transparent" 
+                        className="text-lg font-bold px-[7px] py-1 h-7 bg-transparent focus-visible:outline-none focus-visible:ring-transparent"
                     ></FormInput>
             </form>
         )

@@ -58,7 +58,7 @@ const ProjectIdLayout = async({children,params}:{
         <div 
             className="relative h-full bg-no-repeat bg-cover bg-center">
             <ProjectNavbar data={project}></ProjectNavbar>
-            <div className="absolute inset-0 bg-black/10"></div>
+            <div className="absolute inset-0"></div>
             {/*c'est le couleur du background */}
             <main className="relative pt-28 h-full">
                 {children}
