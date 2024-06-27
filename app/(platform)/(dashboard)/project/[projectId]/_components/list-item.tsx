@@ -39,7 +39,8 @@ export  const ListItem=({
                     className="shrink-0 h-full w-[272px] select-none">
                     <div 
                         {...provided.dragHandleProps}
-                        className="w-full rounded-md bg-[#f1f2f4] shadow-md pb-2">
+                        className="w-full rounded-md bg-gradient-to-r from-[#f3eff8] to-[#dacae8] shadow-md pb-2">
+                        {/*card qui contient tous les taches */}
                         <ListHeader 
                             data={data}
                             onAddCard={enableEditing}

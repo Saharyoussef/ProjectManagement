@@ -89,11 +89,11 @@ export const ListOptions=({
                 <form action={onCopy}>
                     <input hidden name="id" id="id" value={data.id}></input>
                     <input hidden name="projectId" id="projectId" value={data.projectId}></input>
-                    <FormSubmit
+                    <Button
                         className="rounded-none w-full h-auto p-2 px-5 justify-start font-normal text-sm"
                         variant="ghost">
                             Copy List
-                    </FormSubmit>
+                    </Button>
                 </form>
 
                 <Separator></Separator>
@@ -101,11 +101,11 @@ export const ListOptions=({
                 <form action={onDelete}>
                     <input hidden name="id" id="id" value={data.id}></input>
                     <input hidden name="projectId" id="projectId" value={data.projectId}></input>
-                    <FormSubmit
+                    <Button
                         className="rounded-none w-full h-auto p-2 px-5 justify-start font-normal text-sm"
                         variant="ghost">
                             Delete List
-                    </FormSubmit>
+                    </Button>
                 </form>
 
             </PopoverContent>

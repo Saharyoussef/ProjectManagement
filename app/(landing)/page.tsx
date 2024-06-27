@@ -1,52 +1,24 @@
-import { Button } from "@/components/ui/button";
-import {Medal} from "lucide-react";
-import Link from "next/link";
-import {Poppins} from "next/font/google";
-import {cn} from "@/lib/utils";
-
-const textFont= Poppins({
-    subsets: ["latin"],
-    weight:[
-        "100",
-        "200",
-        "300",
-        "400",
-        "500",
-        "600",
-        "700",
-        "800",
-        "900"
-    ],
-});
+import Features from "./_components/features";
+import { Header } from "./_components/header";
+import { Mockup } from "./_components/mockup";
 
 const LandingPage=()=>{
     return(
         <div className="flex items-center justify-center flex-col">
-            <div className="flex items-center justify-center flex-col">
-                <div className="mb-4 flex items-center border shadow-sm p-4 bg-amber-100 text-amber-700 rounded-full uppercase">
-                    <Medal className="h-6 w-6 mr-6"/>
-                    Your Partner in Project Success
+            <Header></Header>
+           {/* Flexbox container for Features and Mockup */}
+            <div className="flex mt-12 flex-col md:flex-row sm:flex-row ">
+                {/* Mockup Component */}
+                <div className="flex flex-1 items-center justify-center md:justify-start md:pr-12 max-w-[400px] md:max-w-[500px] ">
+                    <Mockup />
                 </div>
-                <h1 className="text-3xl md:text-6xl text-center text-neutral-800 mb-6">
-                    Welcome To CollabPro
-                </h1>
-                <div className="text-3xl md:text-6xl bg-gradient-to-r from-fuchsia-600 to-pink-600 text-white px-4 p-2 rounded-md pb-4 w-fit">
-                Collaborate & Conquer
+
+                {/* Features Component */}
+                <div className="flex-1">
+                    <Features />
                 </div>
             </div>
-            <div className={cn("text-sm md:text-xl text-neutral-400 mt-4 max-w-xs md:max-w-2xl text-center mx-auto",
-                textFont.className,
-            )}>
-                {/*car on veut utiliser textFont donc on utilise cn */}
-                
-               CollabPro is your go-to tool for managing tasks and projects effortlessly. With a focus on collaboration and productivity, CollabPro ensures that your team can achieve more, together.
-            </div>
-            <Button className="mt-6" size="lg" asChild>
-                <Link href="/sign-up">
-                    Create an account
-                </Link>
-            </Button> 
-        </div>
+        </div>    
     );
 };
 export default LandingPage;

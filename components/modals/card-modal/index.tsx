@@ -10,6 +10,8 @@ import { Description } from "./description";
 import { Actions } from "./actions";
 import { AuditLog } from "@prisma/client";
 import { Activity } from "./activity";
+import{ Members} from "./members";
+import {Deadline} from "./deadline";
 
 export const CardModal=()=>{
     const id=useCardModal((state)=>state.id);
@@ -58,6 +60,17 @@ export const CardModal=()=>{
                             ?<Actions.Skeleton/>
                             :<Actions data={cardData}/>
                         }
+
+                        {!cardData
+                            ?<Deadline.Skeleton/>
+                            :<Deadline/>
+                        }
+
+                        {!cardData
+                            ?<Members.Skeleton/>
+                            :<Members/>
+                        }
+
 
                     </div>
                 </DialogContent>

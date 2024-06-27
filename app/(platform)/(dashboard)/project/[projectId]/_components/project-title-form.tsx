@@ -68,7 +68,7 @@ export const ProjectTitleForm=({
                         id="title"
                         onBlur={()=>{}}
                         defaultValue={title}
-                        className="text-lg font-bold px-[7px] py-1 h-7 bg-transparent focus-visible:outline-none focus-visible:ring-transparent"
+                        className="text-2xl font-bold px-[7px] py-1 h-7 bg-transparent focus-visible:outline-none focus-visible:ring-transparent text-gray-500 uppercase"
                     ></FormInput>
             </form>
         )
@@ -78,7 +78,7 @@ export const ProjectTitleForm=({
         <Button 
         onClick={enableEditing}
         variant="transparent"
-        className="font-bold text-lg h-auto w-auto p-1 px-2">
+        className="font-bold text-2xl h-auto w-auto p-1 px-2 text-gray-500 uppercase text-center ml-6">
             {title}
         </Button>
     )

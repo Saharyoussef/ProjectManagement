@@ -45,7 +45,6 @@ export const Form = () => {
                 
                 <FormPicker
                     id="image"
-                    className="border border-gray-300 p-2 rounded-md focus:outline-none focus:border-purple-700"
                 ></FormPicker>
                 
                 <button

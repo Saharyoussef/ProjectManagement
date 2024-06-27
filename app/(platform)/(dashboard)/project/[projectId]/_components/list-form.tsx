@@ -60,13 +60,13 @@ if(isEditing){
             <form
             action={onSubmit}
             ref={formRef}
-            className="w-full p-3 rounded-md bg-white space-y-4 shadow-md"
+            className="w-full p-3 rounded-md bg-gradient-to-r from-[#f3eff8] to-[#dacae8] space-y-4 shadow-md"
             >
                 <FormInput
                     errors={fieldErrors}
                     ref={inputRef}
                     id="title"
-                    className="text-sm px-2 py-1 h-7 font-medium border-transparent hover:border-input focus:border-input transition"
+                    className="border border-gray-300 p-2 rounded-md focus:outline-none focus:border-purple-500 focus:ring-0 focus:ring-purple-500"
                     placeholder="Enter List Title"
                     > 
                 </FormInput>
