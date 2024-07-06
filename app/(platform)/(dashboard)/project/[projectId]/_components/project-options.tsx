@@ -10,42 +10,51 @@ import { MoreHorizontal, X } from "lucide-react";
 import { deleteProject } from "@/actions/delete-project";
 import { useAction } from "@/hooks/use-action";
 import { toast } from "sonner";
+import { useState } from "react";
+import ConfirmDialog from "../../../organization/[organizationId]/chat/contacts/_components/confirmDialog";
 
-interface ProjectOptionsProps{
-    id:string;
-};
+interface ProjectOptionsProps {
+    id: string;
+}
 
-export const ProjectOptions=({id}: ProjectOptionsProps)=>{
-    const {execute, isLoading}=useAction(deleteProject,{
-        onError:(error)=>{
+export const ProjectOptions = ({ id }: ProjectOptionsProps) => {
+    const { execute, isLoading } = useAction(deleteProject, {
+        onError: (error) => {
             toast.error(error);
         }
     });
+    const [showConfirmDialog, setShowConfirmDialog] = useState(false);
 
-    const onDelete=()=>{
-        execute({id});
-    }
-    return(
-        <Popover>
-            <PopoverTrigger asChild>
-                <Button
-                    className="h-auto w-auto p-2"
-                    variant="transparent">
-                        <MoreHorizontal></MoreHorizontal>
-                </Button>
-            </PopoverTrigger>
-            <PopoverContent
-                className="px-0 pt-3 pb-3"
-                side="bottom"
-                align="start">
+    const onDelete = () => {
+        setShowConfirmDialog(true);
+    };
+
+    const confirmDelete = () => {
+        execute({ id });
+        setShowConfirmDialog(false);
+    };
+
+    const cancelDelete = () => {
+        setShowConfirmDialog(false);
+    };
+
+    return (
+        <>
+            <Popover>
+                <PopoverTrigger asChild>
+                    <Button className="h-auto w-auto p-2" variant="transparent">
+                        <MoreHorizontal />
+                    </Button>
+                </PopoverTrigger>
+                <PopoverContent className="px-0 pt-3 pb-3" side="bottom" align="start">
                     <div className="text-sm font-medium text-center text-neutral-600 pb-4">
                         Project Actions
                     </div>
                     <PopoverClose asChild>
-                        <Button 
-                            className="h-auto w-auto p-2 absolute top-2 right-2 text-neitral-600"
+                        <Button
+                            className="h-auto w-auto p-2 absolute top-2 right-2 text-neutral-600"
                             variant="ghost">
-                                <X className="h-4 w-4"></X>
+                            <X className="h-4 w-4" />
                         </Button>
                     </PopoverClose>
                     <Button
@@ -56,7 +65,15 @@ export const ProjectOptions=({id}: ProjectOptionsProps)=>{
                     >
                         Delete Project
                     </Button>
-            </PopoverContent>
-        </Popover>
-    )
-}
+                </PopoverContent>
+            </Popover>
+            {showConfirmDialog && (
+                <ConfirmDialog
+                    onConfirm={confirmDelete}
+                    onCancel={cancelDelete}
+                    message="Are you sure you want to delete this project?"
+                />
+            )}
+        </>
+    );
+};

@@ -49,7 +49,7 @@ export const NavItem = ({
     {
       label: "Chat",
       icon: <MessageCircle className="h-6 w-6 mr-2"></MessageCircle>, // Augmente la taille de l'icône
-      href: `/organization/${organization.id}/chat`,
+      href: `/organization/${organization.id}/chat/conversations`,
     },
     {
       label: "Settings",

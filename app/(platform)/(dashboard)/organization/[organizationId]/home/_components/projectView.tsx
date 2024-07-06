@@ -6,29 +6,22 @@ import {
   TableCell,
   TableHead,
   TableRow,
-  Chip,
   TableContainer,
 } from "@mui/material";
 import BaseCard from "./DashboardCard";
 
-const projects = [
+const urgentTasks = [
   {
-    id: "1",
-    project: "Devops",
-    teamLead: "Asma Ali",
-    priority: "Low",
-    pbg: "#392348",
-    deadline: "2024-06-30",
+    task: "Create user account",
+    project: "Bankerise",
+    deadline: "-24H",
   },
   {
-    id: "2",
-    project: "Security Testing",
-    teamLead: "Andrew Josh",
-    priority: "Medium",
-    pbg: "#a986c6",
-    deadline: "2024-07-15",
+    task: "AI chatbot",
+    project: "Bankerise",
+    deadline: "-48H",
   },
-  // Ajoutez plus de projets si nécessaire
+  // Ajoutez d'autres tâches si nécessaire
 ];
 
 const ProjectView = () => {
@@ -42,7 +35,7 @@ const ProjectView = () => {
         }}
       >
         <Typography variant="h6" component="div" sx={{ fontSize: '18px', fontWeight: 'bold', mb: 2 }}>
-          Projects Overview
+          Urgent Tasks
         </Typography>
         <Table
           aria-label="simple table"
@@ -55,22 +48,12 @@ const ProjectView = () => {
             <TableRow>
               <TableCell>
                 <Typography color="textSecondary" variant="h6">
-                  Id
+                  Task
                 </Typography>
               </TableCell>
               <TableCell>
                 <Typography color="textSecondary" variant="h6">
                   Project
-                </Typography>
-              </TableCell>
-              <TableCell>
-                <Typography color="textSecondary" variant="h6">
-                  Team Lead
-                </Typography>
-              </TableCell>
-              <TableCell>
-                <Typography color="textSecondary" variant="h6">
-                  Priority
                 </Typography>
               </TableCell>
               <TableCell align="right">
@@ -81,37 +64,18 @@ const ProjectView = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {projects.map((project) => (
-              <TableRow key={project.id}>
+            {urgentTasks.map((task, index) => (
+              <TableRow key={index}>
                 <TableCell>
-                  <Typography fontSize="15px" fontWeight={500}>
-                    {project.id}
-                  </Typography>
+                  <Typography variant="h6">{task.task}</Typography>
                 </TableCell>
                 <TableCell>
-                  <Typography variant="h6" fontWeight={400}>
-                    {project.project}
-                  </Typography>
-                </TableCell>
-                <TableCell>
-                  <Typography color="textSecondary" fontSize="13px">
-                    {project.teamLead}
-                  </Typography>
-                </TableCell>
-                <TableCell>
-                  <Chip
-                    sx={{
-                      pl: "4px",
-                      pr: "4px",
-                      backgroundColor: project.pbg,
-                      color: "#fff",
-                    }}
-                    size="small"
-                    label={project.priority}
-                  ></Chip>
+                  <Typography variant="h6">{task.project}</Typography>
                 </TableCell>
                 <TableCell align="right">
-                  <Typography variant="h6">{project.deadline}</Typography>
+                  <Typography variant="h6" sx={{ color: 'red', textShadow: '1px 1px 2px rgba(0,0,0,0.5)' }}>
+                    {task.deadline}
+                  </Typography>
                 </TableCell>
               </TableRow>
             ))}
