@@ -3,17 +3,25 @@ import { Card } from "@/components/ui/card";
 import { User } from "lucide-react";
 import Link from "next/link";
 
+export type Organization = {
+    id: string;
+    slug: string;
+    imageUrl: string;
+    name: string;
+};
+
 type Props = {
     id: string;
     imageUrl: string;
     username: string;
+    organization: Organization;
     onClick: () => void;
 };
 
-const DMConversationItem = ({ id, imageUrl, username, onClick }: Props) => {
+const DMConversationItem = ({ id, imageUrl, username, organization, onClick }: Props) => {
     return (
         <div onClick={onClick}>
-            <Link href={`/conversations/${id}`} className="w-full">
+            <Link href={`/organization/${organization.id}/chat/conversations/${id}`} className="w-full">
                 <Card className="p-2 flex flex-row items-center gap-4 truncate">
                     <div className="flex flex-row items-center gap-4 truncate">
                         <Avatar>

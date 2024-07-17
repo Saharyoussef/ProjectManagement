@@ -1,5 +1,6 @@
 "use client"
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { usePathname } from 'next/navigation'; // Assurez-vous que cette importation est correcte pour votre environnement
 import DMConversationItem from "./_components/DMConversationItem";
 import ConversationPage from "./[conversationId]/page";
 import ItemList from "../_components/item-list";
@@ -37,11 +38,26 @@ const staticConversations: Conversation[] = [
 ];
 
 const ConversationLayout = ({ children }: Props) => {
+    const pathname = usePathname();
     const [selectedConversation, setSelectedConversation] = useState<Conversation | null>(null);
+    const [organizationId, setOrganizationId] = useState<string | null>(null);
+
+    useEffect(() => {
+        // Extraction de l'ID de l'organisation à partir du pathname
+        const orgIdMatch = pathname.match(/\/organization\/([^\/]*)\/chat\/conversations/);
+
+        if (orgIdMatch && orgIdMatch[1]) {
+            setOrganizationId(orgIdMatch[1]);
+        }
+    }, [pathname]);
 
     const handleSelectConversation = (conversation: Conversation) => {
         setSelectedConversation(conversation);
     };
+
+    if (!organizationId) {
+        return <div>Loading...</div>;
+    }
 
     return (
         <>
@@ -53,6 +69,7 @@ const ConversationLayout = ({ children }: Props) => {
                             id={conversation.id}
                             imageUrl={conversation.imageUrl}
                             username={conversation.username}
+                            organization={{ id: organizationId, slug: "", imageUrl: "", name: "" }}
                             onClick={() => handleSelectConversation(conversation)}
                         />
                     ))
